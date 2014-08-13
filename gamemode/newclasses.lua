@@ -1,0 +1,160 @@
+GM.Classes = {}
+GM.Classes.Human = {}
+GM.Classes.Zombie = {}
+
+--The Default Classes
+local Survivor 			= {}  --Declare the start of a class
+Survivor.name 			= "Survivor" --Name of the class
+Survivor.description	= "The Survivor: Wears type I armor, specializes in melee weapons, and has a broad weapon selection. Starts off with above average " .. GM.CurrencyName .. "s, and extra supplies." --The description as it appears on the selector
+Survivor.model 			= {"models/humans/group03/male_02.mdl", "models/humans/group03/male_03.mdl", "models/humans/group03/male_04.mdl", "models/humans/group03/male_06.mdl", "models/humans/group03/male_07.mdl", "models/humans/group03/female_02.mdl", "models/humans/group03/female_03.mdl", "models/humans/group03/female_04.mdl", "models/humans/group03/female_06.mdl", "models/humans/group03/female_07.mdl"} --The player model
+Survivor.weapons		= {"models/weapons/w_pist_glock17.mdl"} --A list of weapons to be given on spawn
+Survivor.cash			= 30 --[OPTIONAL] The starting cash ammount DEFAULT: 15
+Survivor.loadout		= {ITEM_MISC, ITEM_MISC, ITEM_MISC, ITEM_SPECIAL, ITEM_SUPPLY, ITEM_SUPPLY, ITEM_SUPPLY} --Not sure but it was in the configuration before
+GM.Classes.Human["Survivor"] = Survivor --Register the class. THE TEXT IN THE BRAKETS MUST BE THE SAME AS .name
+GM.Classes.Human.Default = "Survivor" --Register this as the default class for humans. Just have this attached to something.
+Survivor.damagescale    = 0.85  	  --Damage is scaled by this value (duh). DEFAULT: 1
+Survivor.walkspeed      = 185 	  --How fast the class walks DEFAULT: 175
+Survivor.runspeed       = 265 	  --How fast the class runs DEFAULT: 250
+
+local Engineer 			= {}
+Engineer.name 			= "Engineer"
+Engineer.description	= "The Engineer: Is able to build barricades and construct devices."
+Engineer.model			= {"models/humans/group02/female_02.mdl", "models/humans/group02/female_04.mdl", "models/humans/group02/female_07.mdl", "models/humans/group02/male_02.mdl", "models/humans/group02/male_04.mdl" "models/humans/group02/male_06.mdl"}
+Engineer.weapons		= {"models/weapons/w_pist_cm1911.mdl", "models/weapons/w_hammer.mdl"}
+Engineer.loadout		= { ITEM_MISC, ITEM_MISC, ITEM_SUPPLY }
+Engineer.cash			= 20 
+Engineer.damagescale	= 1
+Engineer.walkspeed      = 175
+Engineer.runspeed       = 250 
+GM.Classes.Human["Engineer"] = Engineer
+
+local Doctor 			= {}
+Doctor.name 			= "Doctor"
+Doctor.description		= "The Doctor: Is able to heal players for " .. GM.CurrencyName .. "s. Has access to cheap medical supplies, but limited access to weaponry. "
+Doctor.model			= {"models/humans/group03m/male_01.mdl", "models/humans/group03m/male_05.mdl", "models/humans/group03m/male_06.mdl", "models/humans/group03m/male_08.mdl", "models/humans/group03m/male_09.mdl", "models/humans/group03m/female_01.mdl", "models/humans/group03m/female_03.mdl", "models/humans/group03m/female_04.mdl", "models/humans/group03m/female_06.mdl", "models/humans/group03m/female_07.mdl"}
+Doctor.weapons			= {"models/weapons/w_medkit.mdl", "models/weapons/w_pist_mkrv.mdl", "models/pg_props/pg_stargate/pg_shot.mdl"}
+Doctor.loadout			= { ITEM_MISC, ITEM_MISC, ITEM_MISC, ITEM_SUPPLY }
+Doctor.cash				= 20 
+Doctor.damagescale	    = 1
+Doctor.walkspeed        = 175
+Doctor.runspeed         = 250 
+Doctor.sptrader			= true -- I have no idea how this is going to work
+GM.Classes.Human["Doctor"] = Doctor
+
+local Scientist 		= {}
+Scientist.name 			= "Scientist"
+Scientist.description	= "The Scientist: Has access to a unique selection of items and experimental weaponry."
+Scientist.model			= {"models/player/blackmesa_scientific.mdl", "models/player/blackmesa_scientific_female.mdl", "models/pg_props/pg_stargate/pg_shot.mdl"}
+Scientist.weapons		= {"models/weapons/w_pist_cz75.mdl"}
+Scientist.loadout		= { ITEM_MISC, ITEM_MISC, ITEM_MISC, ITEM_SUPPLY }
+Scientist.cash			= 20 
+Scientist.damagescale	= 1
+Scientist.walkspeed     = 175
+Scientist.runspeed      = 250 
+GM.Classes.Human["Scientist"] = Scientist
+
+local Police 			= {}
+Police.name 			= "Police Officer"
+Police.description		= "The Police Officer: Specializes in assault rifles. Is equipped with mk II body armour, but suffers from a small speed reduction."
+Police.model			= "models/player/blackmesa_guard.mdl"
+Police.weapons			= {"models/weapons/w_pist_p228.mdl"}
+Police.loadout			= { ITEM_SUPPLY, ITEM_SUPPLY, ITEM_MISC }
+Police.cash				= 10 
+Police.damagescale		= 0.75
+Police.walkspeed        = 170
+Police.runspeed         = 240 
+GM.Classes.Human["Police"] = Police
+
+local Soldier 			= {}
+Soldier.name 			= "Soldier"
+Soldier.description		= "The Soldier: Specializes in machine guns. Is equipped with mk III body armour, but suffers from a speed reduction."
+Soldier.model			= "models/player/blackmesa_marine.mdl"
+Soldier.weapons			= {"models/weapons/w_pist_fiveseven.mdl"}
+Soldier.loadout			= { ITEM_SUPPLY, ITEM_SUPPLY, ITEM_MISC }
+Soldier.cash			= 10 
+Soldier.damagescale		= 0.65
+Soldier.walkspeed       = 169
+Soldier.runspeed        = 230 
+GM.Classes.Human["Soldier"] = Soldier
+
+local Sniper 			= {}
+Sniper.name 			= "Sniper"
+Sniper.description		= "The Sniper: Specializes in sniper rifles. Is equipped with mk I body armour."
+Sniper.model			= {"models/player/rusty/natguard/male_01.mdl," "models/player/rusty/natguard/male_02.mdl", "models/player/rusty/natguard/male_03.mdl", "models/player/rusty/natguard/male_04.mdl", "models/player/rusty/natguard/male_05.mdl", "models/player/rusty/natguard/male_06.mdl", "models/player/rusty/natguard/male_07.mdl", "models/player/rusty/natguard/male_08.mdl", "models/player/rusty/natguard/male_09.mdl"}
+Sniper.weapons			= {"models/weapons/w_pist_usp.mdl"}
+Sniper.loadout			= { ITEM_SUPPLY, ITEM_MISC }
+Sniper.cash				= 15 
+Sniper.damagescale		= 0.85
+Sniper.walkspeed        = 175
+Sniper.runspeed         = 250 
+GM.Classes.Human["Sniper"] = Sniper
+
+local Demo 				= {}
+Demo.name 				= "Demolitions Expert"
+Demo.description		= "The Demolitions Expert: Specializes in explosives. Is equipped with mk III body armour, but suffers from a speed reduction."
+Demo.model				= {"models/player/urban.mdl", "models/player/riot.mdl", "models/player/gasmask.mdl", "models/player/swat.mdl" }
+Demo.weapons			= {"models/weapons/w_pist_usp.mdl"}
+Demo.loadout			= { ITEM_MISC, ITEM_SUPPLY }
+Demo.cash				= 15 
+Demo.damagescale		= 0.65
+Demo.walkspeed 	        = 169
+Demo.runspeed            = 230 
+GM.Classes.Human["Demo"] = Demo
+
+local Runner 			= {}
+Runner.name				= "Runner"
+Runner.description		= "The Runner: A resilient and agile zombie. Capable of infecting humans with its claws."
+Runner.model			= "models/player/corpse1.mdl"
+Runner.weapons			= {"rad_z_runner"}
+Runner.health			= 100 --The HP of the zombie
+Runner.speed			= 225 --The speed of the zombie
+GM.Classes.Zombie["Runner"] = Runner
+GM.Classes.Zombie.Default = "Runner"
+
+local Banshee			= {}
+Banshee.name			= "Banshee"
+Banshee.description		= "The Banshee: A highly radioactive zombie. Capable of disorienting humans with its scream."
+Banshee.model			= "models/player/charple.mdl"
+Banshee.weapons			= {"rad_z_banshee"}
+Banshee.health			= 75
+Banshee.speed			= 200
+GM.Classes.Zombie["Banshee"] = Banshee
+
+local Contagion			= {}
+Contagion.name			= "Contagion"
+Contagion.description	= "The Contagion: A bloated, festering zombie. When killed it will burst into a shower of acid."
+Contagion.model			= "models/player/zombie_classic.mdl"
+Contagion.weapons		= {"rad_z_contagion"}
+Contagion.splash		= true
+Contagion.health		= 175
+Contagion.speed			= 170
+GM.Classes.Zombie["Contagion"] = Contagion
+
+local Leaper			= {}
+Leaper.name				= "Leaper"
+Leaper.description		= "The Leaper: A bony, mutated zombie. Capable of jumping great distances and making humans bleed with its claws."
+Leaper.model			= "models/player/zombie_fast.mdl"
+Leaper.weapons			= {"rad_z_leaper"}
+Leaper.health			= 50
+Leaper.speed			= 275
+GM.Classes.Zombie["Leaper"] = Leaper
+
+local Hulk 				= {}
+Hulk.name				= "Zombie Hulk"
+Hulk.description		= "The Hulk: An heavy mutated zombie of rot and decay. Is slow, but is capable of enduring some of the hardest hits."
+Hulk.model				= "models/player/zombie_classic.mdl"
+Hulk.weapons			= {"poisonzombie"}
+Hulk.damagescale		= 0.90 -- Zombie damagescale will have to be added
+Hulk.health				= 500
+Hulk.speed				= 160
+GM.Classes.Zombie["Hulk"] = Hulk
+
+local Zombine			= {}
+Zombine.name				= "Zombie Soldier"
+Zombine.description		= "The Zombie Soldier: A strong armoured zombie."
+Zombine.model			= "models/player/zombie_fast.mdl"
+Zombine.weapons			= {"rad_z_contagion"}
+Zombine.health			= 200
+Zombine.damagescale		= 0.70
+Zombine.speed			= 210
+GM.Classes.Zombie["Zombine"] = Zombine
