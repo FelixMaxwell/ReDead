@@ -13,7 +13,7 @@ function PANEL:Init()
 		local desc = v.description or "TEH"
 			
 		local button = vgui.Create( "ClassPanel", self )
-		button:SetModel( v.model )
+		button:SetModel( v.model[math.random(#v.model)] )
 		button.OnMousePressed = function() RunConsoleCommand( "changeclass", k ) RunConsoleCommand( "changeteam", TEAM_ARMY ) self:Remove() end
 		button.ID = id
 

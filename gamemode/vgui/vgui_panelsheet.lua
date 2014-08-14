@@ -317,7 +317,7 @@ function PANEL:Rebuild()
 		local x, y = self.Padding, self.Padding
 		
 		for k, panel in pairs( self.Items ) do
-		
+			
 			if ( panel:IsVisible() ) then
 			
 				local w = self:GetItemPnlSize()
