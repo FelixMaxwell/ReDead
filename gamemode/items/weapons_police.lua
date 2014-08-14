@@ -203,13 +203,11 @@ item.Register( {
 	Model = "models/weapons/w_shot_m3super90.mdl",
 	Weapon = "cstm_shotgun_m3cstm",
 	Functions = { FUNC_DROPWEAPON },
-	PickupFunction = FUNC_GRABWEAPON,q
+	PickupFunction = FUNC_GRABWEAPON,
 	DropFunction = FUNC_REMOVEWEAPON,
 	CamPos = Vector(0,38,5),
 	CamOrigin = Vector(1,0,4)
 } )
-
-item
 
 item.Register( { 
 	Name = "FAMAS", 

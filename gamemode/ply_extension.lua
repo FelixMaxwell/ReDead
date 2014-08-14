@@ -535,7 +535,9 @@ function meta:OnSpawn()
 		self:SetWalkSpeed( (GAMEMODE.Classes.Human[self:GetPlayerClass()].walkspeed or GAMEMODE.WalkSpeed) )
 		self:SetRunSpeed( (GAMEMODE.Classes.Human[self:GetPlayerClass()].runspeed or GAMEMODE.RunSpeed) )
 		
-		self:SetModel( GAMEMODE.Classes.Human[self:GetPlayerClass()].model )
+		local models = GAMEMODE.Classes.Human[self:GetPlayerClass()].model
+		
+		self:SetModel( models[math.random(#models)] )
 		
 	else
 	
@@ -563,7 +565,9 @@ function meta:OnSpawn()
 		self:SetWalkSpeed( GAMEMODE.Classes.Zombie[ self:GetPlayerClass() ].speed )
 		self:SetRunSpeed( GAMEMODE.Classes.Zombie[ self:GetPlayerClass() ].speed )
 		
-		self:SetModel( GAMEMODE.Classes.Zombie[ self:GetPlayerClass() ].model )
+		local models = GAMEMODE.Classes.Zombie[ self:GetPlayerClass() ].model
+		
+		self:SetModel( models[math.random(#models)] )
 		
 		self:NoticeOnce( "You can choose your class by pressing F2", GAMEMODE.Colors.Blue, 7, 2 )
 	
