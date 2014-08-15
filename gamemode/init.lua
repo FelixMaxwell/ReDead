@@ -1,4 +1,3 @@
-
 include( 'player_class/player_base.lua' )
 include( 'player_class/player_zombie.lua' )
 include( 'map_defaults.lua' )

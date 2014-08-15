@@ -1219,13 +1219,21 @@ function meta:SynchCash( amt )
 
 end
 
-function meta:SynchStash( ent )
+function meta:SynchStash()
 
 	//datastream.StreamToClients( { self }, "StashSynch", ent:GetItems() )
 	
+	local stash = GAMEMODE.Shop["Common"]
+	local classShop = GAMEMODE.Shop[self:GetPlayerClass()]
+	if classShop then
+		for k,v in pairs( classShop ) do
+			table.insert(stash, v)
+		end
+	end
+	
 	net.Start( "StashSynch" )
 		
-		net.WriteTable( ent:GetItems() )
+		net.WriteTable( stash )
 		
 	net.Send( self )
 

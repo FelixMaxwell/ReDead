@@ -31,7 +31,7 @@ include( 'vgui/vgui_goodmodelpanel.lua' )
 include( 'vgui/vgui_categorybutton.lua' )
 include( 'vgui/vgui_sidebutton.lua' )
 include( 'vgui/vgui_scroller.lua' )
-include( 'vgui/vgui_classpickerbutton.lua' )
+include( 'vgui/vgui_classpickerbutton.lua'  )
 include( 'newclasses.lua' )
 
 CV_RagdollVision = CreateClientConVar( "cl_redead_ragdoll_vision", "1", true, false )

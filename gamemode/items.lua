@@ -14,6 +14,20 @@ function Register( tbl )
 	
 	ID = ID + 1
 	
+	return tbl.ID
+	
+end
+
+GM.Shop = {}
+GM.Shop["Common"] = {}
+
+function AddToClass( item, class )
+	local shop = GM.Shop[class]
+	if shop then
+		table.insert(shop, item)
+	else
+		shop = { item }
+	end
 end
 
 function GetList()

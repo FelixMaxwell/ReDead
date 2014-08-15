@@ -59,7 +59,7 @@ end
 
 
 
-
+item.AddToClass(
 item.Register( { 
 	Name = "Adrenaline Shot", 
 	Description = "A instant health boost. Brings you to 100 health.",
@@ -77,8 +77,9 @@ item.Register( {
 	DropFunction = FUNC_REMOVEWEAPON,
 	CamPos = Vector(0,-17,0),
 	CamOrigin = Vector(-1,0,-2)
-} )
+} ), "Common" )
 
+item.AddToClass(
 item.Register( { 
 	Name = "Adrenaline Shot Kit", 
 	Description = "A medical kit containing 4 adrenaline shots.",
@@ -96,7 +97,7 @@ item.Register( {
 	DropFunction = FUNC_REMOVEWEAPON,
 	CamPos = Vector(0,-17,0),
 	CamOrigin = Vector(-1,0,-2)
-} )
+} ), "Engineer")
 
 
 item.Register( { 
