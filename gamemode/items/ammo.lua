@@ -9,6 +9,7 @@ PRICE_SMGROUNDS = 5
 PRICE_RIFLEROUNDS = 10
 PRICE_SNIPERROUNDS = 10
 PRICE_ENERGYCELL = 8
+PRICE_AMMO_HEALER = 10
 
 function FUNC_AMMO( ply, id )
 
@@ -135,4 +136,22 @@ item.Register( {
 	CamPos = Vector(15,15,8),
 	CamOrigin = Vector(0,0,5)	
 } )
+
+item.Register( { 
+	Name = "Healer Recharge", 
+	Description = "Recharges the healer 25 points.",
+	Stackable = true, 
+	Type = ITEM_AMMO,
+	Weight = 1.50, 
+	Price = PRICE_AMMO_HEALER,
+	Rarity = 0.75,
+	Model = "models/healthvial.mdl",
+	Ammo = "ammo_healer",
+	Amount = 25,
+	PickupFunction = FUNC_AMMO,
+	DropFunction = FUNC_DROPAMMO,
+	CamPos = Vector(15,15,8),
+	CamOrigin = Vector(0,0,5)	
+} )
+
 
